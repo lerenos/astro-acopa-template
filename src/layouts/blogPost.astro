@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 
 const { content } = Astro.props;
-const { title, description, publishDate, author, heroImage, permalink, alt } = content;
+const { title, description, publishDate, author, authorURL, heroImage, permalink, alt } = content;
 ---
 
 <html lang={content.lang || 'pt-BR'}>
