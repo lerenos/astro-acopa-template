@@ -1,0 +1,28 @@
+---
+let {h2class='', grad=''} = Astro.props
+
+let gradClass
+switch (grad) {
+    case 'yellow':
+        gradClass = "bg-gradient-to-r from-[#FF4D4D] to-[#F9CB28]"        
+        break;
+    case 'blue':
+    gradClass = "bg-gradient-to-r from-[#007CF0] to-[#00DFD8]"        
+    break;
+    case 'ig':
+        gradClass = "bg-gradient-to-r from-[#ffd600] via-[#ff0069] to-[#7638fa]"        
+        break;
+    default:
+        gradClass = "bg-gradient-to-r from-pink-500 to-violet-500"
+        break;
+}
+
+h2class+=gradClass
+---
+
+<div class="not-prose text-center text-primary mt-20">
+    <span class="font-bold"><slot name="before" /></span>
+    <h2 class:list={[h2class, "mb-8 font-black text-5xl md:text-7xl leading-none tracking-normal md:tracking-tight bg-clip-text text-transparent"]}>
+        <slot/>
+    </h2>
+</div>

@@ -1,0 +1,17 @@
+---
+export interface Props {
+	imgSrc: string;
+	imgAlt: string;
+}
+
+import defaultAvatar from '../assets/avatar.webp'
+let {imgSrc, imgAlt} = Astro.props
+
+let src = imgSrc || defaultAvatar
+---
+
+<div class="avatar mb-6">
+    <div class="rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+        <img alt={imgAlt} src={src}/>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+---
+let {name, caption, sm} = Astro.props
+
+// Resolved by https://github.com/withastro/astro/issues/3373 and https://vitejs.dev/guide/features.html#glob-import
+// The solution on https://ellodave.dev/blog/2022/4/18/using-svgs-as-astro-components-and-inline-css/ doesn't work on production.
+const svgs = import.meta.glob('../assets/icons/*.svg', { as: 'raw' })
+let fallback = `<span>${name}</span>`
+const innerHTML = svgs['../assets/icons/'+name+'.svg'] || fallback
+---
+
+<div class:list={["text-center text-base-content",(sm?'basis-16':'basis-20')]}>
+    <div class="p-2">
+        <Fragment set:html={innerHTML} />
+    </div>
+    <div class:list={[{'text-xs':sm}]}>
+        {caption}
+    </div>
+</div>

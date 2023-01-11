@@ -1,0 +1,75 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Contact from '@components/contactForms/simple.vue'
+import MainAvatar from '../components/Avatar.astro';
+import avatarImg from '@assets/avatar2.webp'
+import SocialLinks from '@components/resumeSocialLinks.astro';
+
+const { content } = Astro.props;
+let { title, description, imgAlt } = content;
+
+imgAlt = imgAlt || title
+
+let pageUrl = new URL(Astro.url.pathname, Astro.site)
+let site = Astro.site
+
+// veja mais em https://github.com/JayHoltslander/Structured-Data-JSON-LD
+let jsonld = JSON.stringify({
+"@context": "http://schema.org",
+"@graph":[
+    {
+        "@type":"WebPage",
+        "@id":pageUrl+"#jsonldWebpage",
+        "url":pageUrl,
+        "name":title,
+        "description":description,
+        "isPartOf":{
+          "@id":site+"#jsonldWebsite",
+		  "@type":"WebSite",
+        },
+        "inLanguage":(content.lang || 'pt-BR'),
+        "potentialAction":[
+            {
+                "@type":"ReadAction",
+                "target":[pageUrl]
+            }
+        ]
+    }
+  ]
+})
+
+---
+
+<html lang={content.lang || 'pt-BR'} data-theme="dark">
+	<head>
+
+		<BaseHead {title} {description} />
+		<!-- Schema Markup -->
+		<script type="application/ld+json" set:html={jsonld} />
+        <!-- Não indexar esta página -->
+        <meta name="robots" content="noindex">
+
+	</head>
+
+	<body class="p-4">
+
+    <main class="mx-auto mt-4">
+        <section class="text-center grid gap-2 grid-cols-1 place-content-center mb-8">
+            <div id="avatar" class="w-48 mx-auto"><MainAvatar {imgAlt} imgSrc={avatarImg} /></div>
+            <div id="introtext">
+                <div class="text-2xl font-bold"><slot name="hi"/></div>
+                <slot name="subtitle" />
+            </div>
+        </section>
+        <section class="prose mx-auto">
+            <div >
+                <slot/>
+            </div>
+            <Contact client:visible />
+
+            <SocialLinks />
+		</section>
+    </main>
+
+</body>
+</html>

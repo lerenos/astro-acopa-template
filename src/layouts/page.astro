@@ -1,0 +1,64 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+const { content } = Astro.props;
+let { title, description, img, imgAlt } = content;
+
+if (img){
+	let {default: imgSrc} = await import(img)
+}
+// console.log(imgSrc)
+
+imgAlt = imgAlt || title
+
+let pageUrl = new URL(Astro.url.pathname, Astro.site)
+let site = Astro.site
+
+// veja mais em https://github.com/JayHoltslander/Structured-Data-JSON-LD
+let jsonld = JSON.stringify({
+"@context": "http://schema.org",
+"@graph":[
+    {
+        "@type":"WebPage",
+        "@id":pageUrl+"#jsonldWebpage",
+        "url":pageUrl,
+        "name":title,
+        "description":description,
+        "isPartOf":{
+          "@id":site+"#jsonldWebsite",
+		  "@type":"WebSite",
+        },
+        "inLanguage":"pt-BR",
+        "potentialAction":[
+            {
+                "@type":"ReadAction",
+                "target":[pageUrl]
+            }
+        ]
+    }
+  ]
+})
+
+
+
+---
+
+<html lang={content.lang || 'pt-BR'} data-theme="dark">
+	<head>
+
+		<BaseHead {title} {description} />
+		<!-- Schema Markup -->
+		<script type="application/ld+json" set:html={jsonld} />
+
+	</head>
+
+	<body class="p-4">
+
+    <main>
+        <section class="mx-auto prose">
+            <slot/>
+		</section>
+    </main>
+
+</body>
+</html>

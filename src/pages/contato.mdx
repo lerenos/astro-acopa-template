@@ -1,0 +1,23 @@
+---
+layout: ../layouts/contact.astro
+title: Contato | Nome do seu site aqui
+description: Fale com a gente!
+
+# Sobre a chave do google recaptcha:
+# substituir "SUBSTITUIR POR PUBLIC KEY AQUI" por chave pública do google recaptcha nos componentes de formulário 
+# em @components/contactForms/main.vue e simple.vue
+
+---
+import Contato from '../components/contactForms/main.vue'
+
+# Contato
+
+Estamos felizes que você está aqui!
+
+É só mandar a sua mensagem para que nossos especialistas te auxiliem da melhor maneira.
+
+<Contato client:load/>
+
+<div class="not-prose text-center font-normal underline mb-8">
+    <a href="/" class=""> \<\< Ou volte para a página incial </a>
+</div>

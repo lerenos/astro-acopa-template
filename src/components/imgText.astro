@@ -1,0 +1,10 @@
+---
+let {imgSrc, imgAlt, link, text} = Astro.props
+---
+
+<div class="md:flex md:flex-row md:gap-2 md:justify-evenly">
+    <a href={link} target="_blank" class="not-prose mx-8 md:mx-0 md:w-5/12 self-center block">
+        <img class="rounded self-center" src={imgSrc} alt={imgAlt}/>
+    </a>
+    <p class="md:w-1/2" set:html={text}/>
+</div>

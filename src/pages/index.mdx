@@ -1,0 +1,101 @@
+---
+layout: ../layouts/home.astro
+
+companyName: Nome da Sua Empresa
+# siteName: Nome do Site (no caso de diferentes portais de uma mesma empresa)
+# pagetitle: Título da Página (na home, o título fica só pelo nome da empresa mesmo, mas você pode mudar)
+
+companyDesc: "Descrição curta da Empresa para o Google. Ex.: Agência de Marketing. Especialista em X e Y."
+siteDesc: Descrição um pouco mais longa do Site. Portal de conteúdo sobre assunto X, para que você possa fazer Y melhor. 
+# pageDesc: Aqui na home não faz sentido uma descrição da página.
+
+lang: pt-BR
+domain: seusite.com.br
+social: {twitter: '', instagram: '', github: '', facebook: ''  , linkedin: '' }
+address: {city: Rio de Janeiro, region: RJ, country: BR}
+imgStatic: logo.webp
+
+hero: {headline: "Sua Chamada <br> de Impacto",
+    text: "E um pequeno texto complementar para mostrar o valor da solução. <br><br class='md:hidden'> Consiga atingir seus objetivos.",
+    cta: "Comece Agora",
+    introText: "Quer saber mais sobre o assunto X? <br> Dê só uma olhada:"}
+---
+import Colorh2 from '@components/h2colored.astro'
+import Cta from '@components/cta.astro'
+
+
+<Colorh2 grad="blue">
+    <p slot="before">#1</p>
+    Primeiro Tópico
+</Colorh2>
+
+### Que tal começar a história com uma pergunta?
+
+Aqui nessa página estou colocando um texto aleatório, que você deve modificar.
+
+Sobre texto aleatório, uma curiosidade: existem alguns sites geradores de texto aleatório, o chamado "lorem ipsum". É só colocar no google, que você encontrará aos montes. 
+
+Alguns resultados são mais caretas, como o lipsum.com. Outros são mais invientivos, como o Samuel L. Ipsum (que pega algumas frases de filmes do Samuel L. Jackson) ou o Mussum Ipsum (quem é dos anos 90 vai entender).
+
+
+### Três hashtags significam um subtítulo nível 3
+
+Enntão aqui eu diria que nós estamos no nível 1.2 do texto. Primeira seção da página, segunda subseção da primeira seção.
+
+E assim o texto vai fluindo e assim você vai guiando o leitor na história, no processo, evoluindo sua **consciência** sobre o tema abordado na *Landing Page*.
+
+Aliás, como você pode ver, você pode envolver a palavra em dois asteriscos para deixá-la em **negrito** e em um asterisco de cada lado para deixar em *itálico*.
+
+E agora é a hora do famoso botão de ***"Call to Action"***, que traduzindo, é a *chamada à ação*. É para aí que você quer guiar o visitante da sua página. Aqui nesse caso simples, eu guio para uma página de contato.
+
+<Cta/>
+
+<Colorh2 grad="yellow">
+    <p slot="before">#2</p>
+    Segundo Passo
+</Colorh2>
+
+"Usar nossa solução é tão fácil como contar até 3!"
+
+Alguns sites, especialmente estrangeiros, usam essa chamada genérica para explicar algum produto.
+
+É clichê, mas eu confesso que gosto. Convenhamos: a gente adora ver 3 coisas. 3 passos. 3 tempos. 2 é pouco, 5 é pedir demais para o visitante ler.
+
+No mundo da música, os compassos ternários são famosos por serem o tempo das valsas. Você pode testar: pense numa valsa e conte repetidamente "1,2,3, 1,2,3 1,2,3".
+
+Aqui na segunda seção da página eu escrevi mais um texto aleatório, e novamente repito o mesmo CTA (Call-to-action). O botão abaixo leva para o mesmo lugar que o botão anterior.
+
+Acredito ser interessante a estratégia de reforçar o foco do visitante para uma única ação.
+
+<Cta/>
+
+<Colorh2>
+    <p slot="before">#3</p>
+    Terceiro Subtítulo Coloridão
+</Colorh2>
+
+Perceba no arquivo mdx que a tag de subtítulo (tradicionalmente h2 ou \##) foi substituída por um componente chamado "Colorh2". 
+
+Esse é um componente exclusivo que fiz para facilitar a confecção desses susbtítulos coloridos. Você pode usar alguns dos padrões de cor já existentes, como "blue", "yellow", "ig" (que imita o padrão de degradê do Instagram) ou deixar no padrão, que é o desta seção.
+
+E agora, por fim, terminamos o momento "passo-a-passo", e vamos para a mais um CTA e para a conclusão.
+
+<Cta/>
+
+## Subtítulo Normalzão
+
+<span class="text-center">
+E aqui eu coloquei um texto centralizado, apesar do padrão, aqui nesta página, ser o alinhado à esquerda.
+
+Mussum Ipsum, cacilds vidis litro abertis. Delegadis gente finis, bibendum egestas augue arcu ut est.Vehicula non. Ut sed ex eros. Vivamus sit amet nibh non tellus tristique interdum.Interagi no mé, cursus quis, vehicula ac nisi.Si num tem leite então bota uma pinga aí cumpadi!
+</span>
+
+## Vamos lá? ✨
+
+Agora é a última chamada. A última oportunidade de conversão desta página. Não usei nenhum subtítulo h2 colorido, usei o normal mesmo, apenas com duas hashtags (\##).
+
+Apesar disso, coloquei um emoji pra fazer uma firula.
+
+Tudo o que você quer agora é que o visitante decida finalmente clicar nesse botão e executar a ação desejada pela sua estratégia:
+
+<Cta>Fale com a gente!</Cta> 
