@@ -1,4 +1,3 @@
-// const sgMail = require('@sendgrid/mail');
 const sgMail = require('@sendgrid/mail');
 const axios = require('axios');
 const sanitizeHtml = require('sanitize-html');
@@ -20,7 +19,7 @@ function isHuman(token) {
       return data.success
     } )
     .catch(e => console.log(e))
-  }
+}
   
 // export default async function handler(event, response)
 // const handler = async (event) => 

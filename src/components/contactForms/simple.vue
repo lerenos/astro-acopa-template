@@ -68,7 +68,7 @@ export default {
         },
         submitToServer(token) {
             return new Promise((resolve, reject) => {
-                fetch('/api/mail', {
+                fetch('/.netlify/functions/mail', {
                     method: "POST",
                     body: JSON.stringify({...this.formV, token})
                 }).then(response => {

@@ -6,6 +6,6 @@ import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 
 export default defineConfig({
-  site: "https://acopa.com.br",
+  site: "https://seusite.com.br/",
   integrations: [vue(), tailwind(), sitemap(), mdx()]
 });
